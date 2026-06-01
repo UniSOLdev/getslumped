@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { products } from "@/lib/products";
-import { ProductImage } from "@/components/product/ProductImage";
+import { ProductStudioPhoto } from "@/components/product/ProductStudioPhoto";
 import { AddButton } from "@/components/ui/AddButton";
 
 export function ProductGrid() {
@@ -25,13 +25,13 @@ export function ProductGrid() {
           </div>
           <a
             href="#bundles"
-            className="text-sm font-medium text-cream-muted transition-colors hover:text-amber"
+            className="text-sm font-medium text-copy-muted transition-colors hover:text-amber"
           >
             View bundles →
           </a>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {products.map((product, i) => (
             <motion.article
               key={product.id}
@@ -39,26 +39,21 @@ export function ProductGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-16px" }}
               transition={{ delay: (i % 4) * 0.05 }}
-              whileHover={{ y: -3 }}
-              className="glass-card glass-card-hover group flex flex-col overflow-hidden rounded-2xl transition-all duration-300"
+              whileHover={{ y: -4 }}
+              className="product-card group overflow-hidden rounded-2xl"
             >
-              <div className="relative flex h-[160px] items-center justify-center overflow-hidden rounded-t-2xl border-b border-white/[0.04] bg-gradient-to-b from-[#141820] to-[#080a0c] p-4 sm:h-[200px] lg:h-[220px]">
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_90%,rgba(232,165,75,0.1)_0%,transparent_65%)]" />
-                </div>
-                <ProductImage
-                  variant={product.variant}
-                  alt={product.name}
-                  className="relative z-10 h-full w-full max-h-[140px] sm:max-h-[180px] lg:max-h-[200px]"
-                  imageClassName="group-hover:scale-[1.03]"
-                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-3.5 sm:p-4">
-                <h3 className="text-sm font-semibold text-cream">{product.name}</h3>
-                <p className="mt-0.5 text-xs text-cream-muted">{product.descriptor}</p>
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="text-sm font-bold text-cream">
+              <ProductStudioPhoto
+                variant={product.variant}
+                alt={product.name}
+                className="h-52 sm:h-56 lg:h-64"
+                imageClassName="transition-transform duration-300 group-hover:scale-[1.02]"
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
+              />
+              <div className="product-card__body">
+                <h3 className="text-base font-semibold text-cream">{product.name}</h3>
+                <p className="mt-1 text-sm text-copy-muted">{product.descriptor}</p>
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <span className="text-base font-bold tracking-tight text-cream">
                     ${product.price.toFixed(2)}
                   </span>
                   <AddButton />

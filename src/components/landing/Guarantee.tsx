@@ -28,8 +28,13 @@ export function Guarantee() {
                 better, get a full refund.
               </p>
             </div>
-            <Button variant="outline" className="shrink-0">
-              Learn More
+            <Button
+              className="shrink-0"
+              onClick={() =>
+                document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Get Slumped
             </Button>
           </div>
         </motion.div>

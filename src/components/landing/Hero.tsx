@@ -1,19 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { HERO_KIT_IMAGE } from "@/lib/product-images";
+import { HeroProductComposition } from "@/components/landing/HeroProductComposition";
 
 export function Hero() {
   return (
     <section className="relative min-h-[100dvh] overflow-hidden border-b border-white/[0.04] lg:min-h-screen">
-      <div className="absolute inset-0 bg-[#050608]" />
+      <div className="absolute inset-0 bg-matte-black" />
       <div className="absolute inset-0 page-bg opacity-80" />
 
       <div className="relative mx-auto grid min-h-[100dvh] max-w-[1600px] lg:min-h-screen lg:grid-cols-2">
-        {/* Left — copy */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,9 +26,9 @@ export function Hero() {
             <br />
             Wake Better.
           </h1>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-cream-muted sm:max-w-lg sm:text-lg">
-            The complete sleep system designed to help you unwind faster,
-            recover better, and wake up feeling your best.
+          <p className="mt-6 max-w-md text-base leading-relaxed text-copy-muted sm:max-w-lg sm:text-lg">
+            The complete sleep system designed to help you unwind faster, cool
+            down, recover better, and wake up feeling human again.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -44,10 +42,10 @@ export function Hero() {
             <Button
               variant="secondary"
               onClick={() =>
-                document.getElementById("system")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById("bundles")?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              See How It Works
+              Build Your Sleep System
             </Button>
           </div>
 
@@ -57,34 +55,19 @@ export function Hero() {
                 <Star key={i} className="h-4 w-4 fill-amber text-amber" />
               ))}
             </div>
-            <p className="text-sm text-cream-muted">
+            <p className="text-sm text-copy-muted">
               <span className="font-semibold text-cream">12,842+</span> 5-star reviews
             </p>
           </div>
         </motion.div>
 
-        {/* Right — hero kit image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative flex w-full items-center justify-center px-4 pb-12 pt-6 sm:px-8 lg:min-h-screen lg:px-6 lg:py-16"
+          className="relative flex w-full items-center justify-center overflow-hidden px-2 pb-14 pt-2 sm:px-6 lg:min-h-screen lg:items-center lg:overflow-visible lg:px-4 lg:py-12 xl:pr-10"
         >
-          <div className="relative w-full max-w-[760px]">
-            <div className="pointer-events-none absolute inset-[-15%] bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(255,159,74,0.22)_0%,rgba(232,165,75,0.08)_40%,transparent_72%)]" />
-            <div className="pointer-events-none absolute bottom-[8%] left-1/2 h-[20%] w-[70%] -translate-x-1/2 rounded-[100%] bg-black/60 blur-2xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-b from-[#12151a]/80 to-[#080a0c]/90 p-3 shadow-[0_32px_80px_rgba(0,0,0,0.65)] sm:p-5">
-              <Image
-                src={HERO_KIT_IMAGE}
-                alt="GET SLUMPED Sleep System — Glow, Blackout mask, Wick candle, Mist spray, and NightShades"
-                width={760}
-                height={820}
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="relative z-10 h-auto w-full object-contain transition-transform duration-500 hover:scale-[1.02]"
-              />
-            </div>
-          </div>
+          <HeroProductComposition />
         </motion.div>
       </div>
     </section>

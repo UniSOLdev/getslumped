@@ -13,7 +13,7 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white cta-glow border border-accent/50 hover:bg-[#4a86ff]",
+    "bg-accent text-white cta-glow border border-accent/50 hover:bg-accent-hover",
   secondary:
     "bg-white/[0.04] text-cream border border-white/12 hover:border-amber/30 hover:bg-white/[0.07]",
   ghost: "text-cream-muted hover:text-cream hover:bg-white/5",

@@ -1,17 +1,40 @@
 import type { ProductVariant } from "./products";
 
-export const PRODUCT_IMAGE_MAP: Record<ProductVariant, string> = {
-  glow: "/assets/products/slumped-glow.png",
-  blackout: "/assets/products/slumped-blackout.png",
-  nightshades: "/assets/products/slumped-nightshades.png",
-  wick: "/assets/products/slumped-wick.png",
-  mist: "/assets/products/slumped-mist.png",
-  coolcase: "/assets/products/slumped-coolcase.png",
-  socks: "/assets/products/slumped-socks.png",
+const ORIGINAL = "/assets/products/originals";
+
+export const PRODUCT_IMAGE_MAP: Record<
+  Exclude<ProductVariant, "glow" | "wick">,
+  string
+> = {
+  fan: `${ORIGINAL}/slumped-fan-original.png`,
+  blackout: `${ORIGINAL}/slumped-blackout-original.png`,
+  nightshades: `${ORIGINAL}/slumped-nightshades-original.png`,
+  mist: `${ORIGINAL}/slumped-mist-original.png`,
+  coolcase: `${ORIGINAL}/slumped-coolcase-original.png`,
+  socks: `${ORIGINAL}/slumped-socks-original.png`,
 };
 
-export const HERO_KIT_IMAGE = "/assets/products/slumped-hero-kit.png";
+/** Solo render not available — use polished CSS placeholder */
+export const PLACEHOLDER_VARIANTS: ProductVariant[] = ["glow", "wick"];
 
-export function getProductImage(variant: ProductVariant): string {
-  return PRODUCT_IMAGE_MAP[variant];
+export type ProductPhotoTone = "amber" | "blue" | "neutral";
+
+export const PRODUCT_PHOTO_TONE: Record<ProductVariant, ProductPhotoTone> = {
+  glow: "amber",
+  fan: "neutral",
+  blackout: "neutral",
+  nightshades: "blue",
+  wick: "amber",
+  mist: "amber",
+  coolcase: "neutral",
+  socks: "neutral",
+};
+
+export function usesPlaceholder(variant: ProductVariant): boolean {
+  return PLACEHOLDER_VARIANTS.includes(variant);
+}
+
+export function getProductImage(variant: ProductVariant): string | null {
+  if (usesPlaceholder(variant)) return null;
+  return PRODUCT_IMAGE_MAP[variant as Exclude<ProductVariant, "glow" | "wick">];
 }

@@ -11,7 +11,7 @@ export function AddButton({ className }: { className?: string }) {
       whileTap={{ scale: 0.95 }}
       aria-label="Add to cart"
       className={cn(
-        "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-cream transition-colors hover:border-amber/40 hover:bg-amber/10",
+        "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-cream transition-all duration-300 hover:border-accent/45 hover:bg-accent/15 hover:text-white hover:shadow-[0_0_20px_rgba(56,98,255,0.25)]",
         className
       )}
     >

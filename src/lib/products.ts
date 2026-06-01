@@ -1,11 +1,12 @@
 export type ProductVariant =
+  | "glow"
+  | "fan"
   | "blackout"
   | "nightshades"
   | "wick"
   | "mist"
   | "coolcase"
-  | "socks"
-  | "glow";
+  | "socks";
 
 export interface Product {
   id: string;
@@ -16,6 +17,20 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  {
+    id: "glow",
+    name: "Slumped Glow",
+    descriptor: "Sound + Light Machine",
+    price: 59.99,
+    variant: "glow",
+  },
+  {
+    id: "fan",
+    name: "Slumped Fan",
+    descriptor: "Cooling Bedside Fan",
+    price: 39.99,
+    variant: "fan",
+  },
   {
     id: "blackout",
     name: "Slumped Blackout",
@@ -47,7 +62,7 @@ export const products: Product[] = [
   {
     id: "coolcase",
     name: "Slumped CoolCase",
-    descriptor: "Cooling Pillowcase",
+    descriptor: "Satin Pillowcase",
     price: 29.99,
     variant: "coolcase",
   },
@@ -58,19 +73,21 @@ export const products: Product[] = [
     price: 14.99,
     variant: "socks",
   },
-  {
-    id: "glow",
-    name: "Slumped Glow",
-    descriptor: "Sound + Light Machine",
-    price: 59.99,
-    variant: "glow",
-  },
 ];
 
-export const heroProducts = products.filter((p) =>
-  ["glow", "blackout", "wick", "mist", "nightshades", "coolcase"].includes(p.id)
-);
+export const heroProductVariants: ProductVariant[] = [
+  "glow",
+  "blackout",
+  "mist",
+  "wick",
+  "nightshades",
+  "coolcase",
+  "socks",
+  "fan",
+];
 
 export const systemProducts = products.filter((p) =>
-  ["glow", "blackout", "nightshades", "wick", "mist", "coolcase"].includes(p.id)
+  ["glow", "blackout", "nightshades", "wick", "mist", "coolcase", "fan"].includes(
+    p.id
+  )
 );

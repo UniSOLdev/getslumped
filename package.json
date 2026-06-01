@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "process-cutouts": "node scripts/process-product-cutouts.mjs",
     "start": "next start",
     "lint": "next lint",
     "crop-products": "node scripts/crop-products.mjs"
