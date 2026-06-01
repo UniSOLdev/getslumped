@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-matte-black: #050608;
+  --color-midnight: #0a0a0a;
+  --color-navy: #101827;
+  --color-cream: #f5f0e6;
+  --color-cream-muted: #c9c4bc;
+  --color-accent: #3b7dff;
+  --color-amber: #e8a54b;
+  --color-amber-warm: #f59e3b;
+  --color-amber-glow: #ff9f4a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050608;
+  color: #f5f0e6;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #e8a54b40;
+  color: #f5f0e6;
+}
+
+.page-bg {
+  background:
+    radial-gradient(ellipse 90% 60% at 70% 20%, rgba(232, 165, 75, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 10% 80%, rgba(16, 24, 39, 0.4) 0%, transparent 55%),
+    linear-gradient(180deg, #0a0a0a 0%, #050608 100%);
+}
+
+.glass-card {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(232, 165, 75, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 30px rgba(232, 165, 75, 0.06);
+}
+
+.cta-glow {
+  box-shadow: 0 0 20px rgba(59, 125, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.amber-glow {
+  box-shadow: 0 0 50px rgba(255, 159, 74, 0.45), 0 0 100px rgba(232, 165, 75, 0.2);
+}
+
+.candle-glow {
+  box-shadow: 0 0 30px rgba(255, 140, 50, 0.5), 0 0 60px rgba(232, 165, 75, 0.25);
+}
+
+.text-cream {
+  color: #f5f0e6;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(180deg, #f5f0e6 0%, #e8e2d8 55%, #c9c4bc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.product-stage {
+  background: radial-gradient(
+    ellipse 70% 60% at 55% 45%,
+    rgba(255, 159, 74, 0.12) 0%,
+    rgba(10, 10, 10, 0) 70%
+  );
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
